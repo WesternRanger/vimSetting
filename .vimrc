@@ -16,6 +16,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'posva/vim-vue'
 Plugin 'othree/html5.vim'
+Plugin 'alpertuna/vim-header'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -28,7 +29,11 @@ filetype plugin indent on    " required
 au BufRead,BufNewFile *.vue set filetype=html
 "--E-- vue highlight ----
 
-
+"--S-- AddHeader ----
+let g:header_field_author = 'WesternRanger'
+let g:header_field_author_email = 'chenqi@nicaifu.com'
+map <F4> :AddHeader<CR>
+"--E-- AddHeader ----
 
 
 
