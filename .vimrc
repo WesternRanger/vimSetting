@@ -66,7 +66,7 @@ set softtabstop=4 " 设置软制表符的宽度
 set shiftwidth=4 " (自动) 缩进使用的4个空格
 set cindent " 使用 C/C++ 语言的自动缩进方式
 set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s "设置C/C++语言的具体缩进方式
-"set backspace=2 " 设置退格键可用
+set backspace=2 "设置退格键可用
 set showmatch " 设置匹配模式，显示匹配的括号
 set linebreak " 整词换行
 set whichwrap=b,s,<,>,[,] " 光标从行首和行末时可以跳到另一行去
