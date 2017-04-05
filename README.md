@@ -20,6 +20,15 @@
 - *.vue文件代码高亮[html5.vim](https://github.com/othree/html5.vim),其原理就是.vue文件跟.html文件用一套格式。
 - 代码注释插件[nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 - zencoding插件[emmet](https://github.com/mattn/emmet-vim)
+- 自动补全插件 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+  但对于CSS的自动补全有点麻烦，因为多数CSS的语法是上下文相关的，而YCM的自动补全触发器只考虑当前行。 较好的补救办法是手动设置一下触发器，在~/.vimrc中添加：
+   ```
+   let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+'],
+    \   'html': [ '</' ],
+    \ }
+    ```
+- CSS前后大括号匹配 [delimitMate](https://github.com/Raimondi/delimitMate) 
 
 具体配置请看[.vimrc ](./.vimrc)
 复制.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
