@@ -9,4 +9,16 @@
 
 因为是入门级的选手，所以配置比较简单，只有一些我平时做web前端开发常用的插件。
 
-用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。具体配置请看[.vimrc ](./.vimrc)
+用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。
+
+- 字段全局搜索[Ack](https://github.com/mileszs/ack.vim) ,[说明文档](http://harttle.com/2015/12/21/vim-search.html)
+- 文件名搜索[ctrlp](https://github.com/kien/ctrlp.vim)
+- 部分文件(比如*.js、*.css、...)[fileHeader](https://github.com/alpertuna/vim-header)
+- 目录管理[NERDTree](https://github.com/scrooloose/nerdtree)
+- 开启多个文件[tabs共享](https://github.com/jistr/vim-nerdtree-tabs)
+- vue代码高亮[vim-vue](https://github.com/posva/vim-vue),注：只能高亮*.js文件里的vue代码。
+- *.vue文件代码高亮[html5.vim](https://github.com/othree/html5.vim),其原理就是.vue文件跟.html文件用一套格式。
+- 代码注释插件[nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+- zencoding插件[emmet](https://github.com/mattn/emmet-vim)
+
+具体配置请看[.vimrc ](./.vimrc)
