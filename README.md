@@ -22,3 +22,4 @@
 - zencoding插件[emmet](https://github.com/mattn/emmet-vim)
 
 具体配置请看[.vimrc ](./.vimrc)
+复制.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
