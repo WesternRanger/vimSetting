@@ -17,6 +17,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'posva/vim-vue'
 Plugin 'othree/html5.vim'
 Plugin 'alpertuna/vim-header'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mileszs/ack.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -36,6 +38,8 @@ map <F4> :AddHeader<CR>
 "--E-- AddHeader ----
 
 
+"--S-- ack 全局文字搜索 ----
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "--S-- NERDTree ----
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
