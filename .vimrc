@@ -19,24 +19,31 @@ Plugin 'othree/html5.vim'
 Plugin 'alpertuna/vim-header'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mileszs/ack.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'pangloss/vim-javascript'
+"Plugin 'marijnh/tern_for_vim'
+Plugin 'vim-syntastic/syntastic'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 "--E-- set of Vundle ----
-
-
-
+let g:syntastic_javsacript_checkers = ['eslint']
+let g:syntastic_csslint_args="--ignore=outline-none"
+let javascript_enable_domhtmlcss = 1
+let g:ycm_semantic_triggers = {
+			\'css': [ 're!^\s{4}', 're!:\s+'],
+			\'html': [ '</' ],
+			\}
 
 "--S-- vue highlight ----
 au BufRead,BufNewFile *.vue set filetype=html
 "--E-- vue highlight ----
 
 "--S-- AddHeader ----
-let g:header_field_author = 'WesternRanger'
-let g:header_field_author_email = 'chenqi@nicaifu.com'
+let g:header_field_author = 'chenqi'
+let g:header_field_author_email = 'western_ranger@icloud.com'
 map <F4> :AddHeader<CR>
 "--E-- AddHeader ----
-
 
 "--S-- ack 全局文字搜索 ----
 let g:ackprg = 'ag --nogroup --nocolor --column'
