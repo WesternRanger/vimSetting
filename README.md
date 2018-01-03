@@ -1,13 +1,13 @@
-## 我的vim配置
+### 我的vim配置
 
-**我的vim之路可能比绝大数程序员要长。**
+我的vim之路可能比绝大数程序员要长。
 
 - 2016年3月感觉对vim的操作很感兴趣，稍微了解了一下。
 - 同年7月下决心一定要把手头的webstorm换掉，因为确实太笨重了。
 - 之后的几个月把前端开发所用的几乎所有主流的IDE（编辑器配置过后功能比较强大，可算作IDE）都用遍了。比如webstorm、sublime、atom、vscode，我看破了他们的优缺点。
 - 这期间不断折腾过vim，不得不说vim学习曲线太过陡峭，直到今天，才感觉可以开发项目了。
-
-因为是入门级的选手，所以配置比较简单，只有一些我平时做web前端开发常用的插件。
+- 后来坚持了几天遂放弃，很多场景还是不熟练，改用webstorm吧，开心就好。
+- 1年半以后，18年一月三日深夜，时值来京3周年之际，不满足与现有ide，想折腾一下，想到现在对vim还没掌握复制到粘贴板功能。随攻克之。希望今后的python学习能用vim作主要IDE
 
 **用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。**
 
@@ -31,6 +31,9 @@
 - CSS前后大括号匹配 [delimitMate](https://github.com/Raimondi/delimitMate) 
 
 **从vim官方plugin平台安装plugin**
-> https://vim.sourceforge.io/search.php 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的，https://vim.sourceforge.io/scripts/script.php?script_id=2098，github地址：https://github.com/kana/vim-fakeclip。下载了fakeclip.vim以后，只需要把他放到~/.vim/plugin 文件夹下即可。
+> https://vim.sourceforge.io/search.php 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的。
+插件地址：https://vim.sourceforge.io/scripts/script.php?script_id=2098
+github地址：https://github.com/kana/vim-fakeclip
+下载了fakeclip.vim以后，只需要把他放到~/.vim/plugin 文件夹下即可。
 
 复制vimrc文件->系统~/.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
