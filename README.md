@@ -1,6 +1,6 @@
 ## 我的vim配置
 
-我的vim之路可能比绝大数程序员要长。
+**我的vim之路可能比绝大数程序员要长。**
 
 - 2016年3月感觉对vim的操作很感兴趣，稍微了解了一下。
 - 同年7月下决心一定要把手头的webstorm换掉，因为确实太笨重了。
@@ -9,7 +9,7 @@
 
 因为是入门级的选手，所以配置比较简单，只有一些我平时做web前端开发常用的插件。
 
-用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。
+**用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。**
 
 - 字段全局搜索[Ack](https://github.com/mileszs/ack.vim) ,[说明文档](http://harttle.com/2015/12/21/vim-search.html)
 - 文件名搜索[ctrlp](https://github.com/kien/ctrlp.vim)
@@ -30,5 +30,7 @@
     ```
 - CSS前后大括号匹配 [delimitMate](https://github.com/Raimondi/delimitMate) 
 
-具体配置请看[.vimrc ](./.vimrc)
-复制.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
+**从vim官方plugin平台安装plugin**
+> https://vim.sourceforge.io/search.php 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的，https://vim.sourceforge.io/scripts/script.php?script_id=2098，github地址：https://github.com/kana/vim-fakeclip。下载了fakeclip.vim以后，只需要把他放到~/.vim/plugin 文件夹下即可。
+
+复制vimrc文件->系统~/.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
