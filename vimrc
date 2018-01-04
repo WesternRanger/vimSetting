@@ -21,6 +21,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'pangloss/vim-javascript'
+Plugin 'kana/vim-fakeclip'
 "Plugin 'marijnh/tern_for_vim'
 Plugin 'vim-syntastic/syntastic'
 " All of your Plugins must be added before the following line
@@ -74,10 +75,11 @@ colorscheme ron " elflord ron peachpuff default 设置配色方案，vim自带�
 set background=dark
 "set ignorecase " 搜索模式里忽略大小写
 "set smartcase " 如果搜索模式包含大写字符，不使用 'ignorecase' 选项。只有在输入搜索模式并且打开 'ignorecase' 选项时才会使用。
+set tabstop=4 " 设置制表符(tab键)的宽度
+set expandtab
 set autowrite " 自动把内容写回文件: 如果文件被修改过，在每个 :next、:rewind、:last、:first、:previous、:stop、:suspend、:tag、:!、:make、CTRL-] 和 CTRL-^命令时进行；用 :buffer、CTRL-O、CTRL-I、'{A-Z0-9} 或 `{A-Z0-9} 命令转到别的文件时亦然。
 set autoindent " 设置自动对齐(缩进)：即每行的缩进值与上一行相等；使用 noautoindent 取消设置
 "set smartindent " 智能对齐方式
-set tabstop=4 " 设置制表符(tab键)的宽度
 set softtabstop=4 " 设置软制表符的宽度
 set shiftwidth=4 " (自动) 缩进使用的4个空格
 set cindent " 使用 C/C++ 语言的自动缩进方式
@@ -104,3 +106,5 @@ set hlsearch
 " 使用F1切换paste模式
 set pastetoggle=<F1>
 "--E-- 默认配置 ----
+map <C-Z> u
+nmap <C-Z> u
