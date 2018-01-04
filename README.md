@@ -10,7 +10,7 @@
 - 1年半以后，18年一月三日深夜，时值来京3周年之际，不满足与现有ide，想折腾一下，想到现在对vim还没掌握复制到粘贴板功能。随攻克之。希望今后的python学习能用vim作主要IDE
 
 **从vim官方plugin平台安装plugin**
-> https://vim.sourceforge.io/search.php 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的。
+> http://www.vim.org/ 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的。
 
 **用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。**
 
