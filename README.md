@@ -13,6 +13,7 @@
 > http://www.vim.org/ 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的。
 
 **用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。**
+>复制vimrc文件->系统~/.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
 
 - 字段全局搜索[Ack](https://github.com/mileszs/ack.vim) ,[说明文档](http://harttle.com/2015/12/21/vim-search.html)
 - 文件名搜索[ctrlp](https://github.com/kien/ctrlp.vim)
@@ -37,4 +38,5 @@
   github地址：https://github.com/kana/vim-fakeclip
   使用vindle  Plugin 'kana/vim-fakeclip' PluginInstall 安装即可
 
-复制vimrc文件->系统~/.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
+**其他**
+- undo，redo：https://stackoverflow.com/questions/1555779/how-do-i-do-redo-i-e-undo-undo-in-vim
