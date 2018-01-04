@@ -9,6 +9,9 @@
 - 后来坚持了几天遂放弃，很多场景还是不熟练，改用webstorm吧，开心就好。
 - 1年半以后，18年一月三日深夜，时值来京3周年之际，不满足与现有ide，想折腾一下，想到现在对vim还没掌握复制到粘贴板功能。随攻克之。希望今后的python学习能用vim作主要IDE
 
+**从vim官方plugin平台安装plugin**
+> https://vim.sourceforge.io/search.php 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的。
+
 **用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。**
 
 - 字段全局搜索[Ack](https://github.com/mileszs/ack.vim) ,[说明文档](http://harttle.com/2015/12/21/vim-search.html)
@@ -29,11 +32,9 @@
     \ }
     ```
 - CSS前后大括号匹配 [delimitMate](https://github.com/Raimondi/delimitMate) 
-
-**从vim官方plugin平台安装plugin**
-> https://vim.sourceforge.io/search.php 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的。
-插件地址：https://vim.sourceforge.io/scripts/script.php?script_id=2098
-github地址：https://github.com/kana/vim-fakeclip
-下载了fakeclip.vim以后，只需要把他放到~/.vim/plugin 文件夹下即可。
+- vim调用OS clipboard
+  插件地址：https://vim.sourceforge.io/scripts/script.php?script_id=2098
+  github地址：https://github.com/kana/vim-fakeclip
+  使用vindle  Plugin 'kana/vim-fakeclip' PluginInstall 安装即可
 
 复制vimrc文件->系统~/.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
