@@ -86,6 +86,7 @@ colorscheme ron " elflord ron peachpuff default 设置配色方案，vim自带�
 
 "--S-- 默认配置 ----
 set statusline=%#ErrorMsg#%{GitBranchInfoTokens()[0]}%#StatusLine#
+set mouse=a
 set foldlevelstart=99
 set foldmethod=indent
 set background=dark
