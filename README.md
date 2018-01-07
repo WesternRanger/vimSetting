@@ -37,6 +37,4 @@
   插件地址：https://vim.sourceforge.io/scripts/script.php?script_id=2098
   github地址：https://github.com/kana/vim-fakeclip
   使用vindle  Plugin 'kana/vim-fakeclip' PluginInstall 安装即可
-
-**其他**
 - undo，redo：https://stackoverflow.com/questions/1555779/how-do-i-do-redo-i-e-undo-undo-in-vim
