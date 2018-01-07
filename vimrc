@@ -22,11 +22,19 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kana/vim-fakeclip'
+Plugin 'taq/vim-git-branch-info'
 "Plugin 'marijnh/tern_for_vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'mattn/vim-terminal'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'tpope/vim-pathogen'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
 "--E-- set of Vundle ----
 let g:syntastic_javsacript_checkers = ['eslint']
 let g:syntastic_csslint_args="--ignore=outline-none"
@@ -48,6 +56,11 @@ map <F4> :AddHeader<CR>
 
 "--S-- ack 全局文字搜索 ----
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:html5_event_handler_attributes_complete = 0 " Disable event-handler attributes
+let g:html5_rdfa_attributes_complete = 0          " Disable RDFa attributes
+let g:html5_microdata_attributes_complete = 0     " Disable microdata attributes
+let g:html5_aria_attributes_complete = 0          " Disable WAI-ARIA attribute
 
 "--S-- NERDTree ----
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
@@ -72,6 +85,9 @@ colorscheme ron " elflord ron peachpuff default 设置配色方案，vim自带�
 
 
 "--S-- 默认配置 ----
+set statusline=%#ErrorMsg#%{GitBranchInfoTokens()[0]}%#StatusLine#
+set foldlevelstart=99
+set foldmethod=indent
 set background=dark
 "set ignorecase " 搜索模式里忽略大小写
 "set smartcase " 如果搜索模式包含大写字符，不使用 'ignorecase' 选项。只有在输入搜索模式并且打开 'ignorecase' 选项时才会使用。
@@ -105,6 +121,25 @@ set incsearch " 输入字符串就显示匹配点
 set hlsearch
 " 使用F1切换paste模式
 set pastetoggle=<F1>
+set autowriteall
+
+
 "--E-- 默认配置 ----
+autocmd BufWritePost ~/.vimrc source ~/.vimrc  
+imap jk <Esc>
+"let mapleader = "\<Space>"
+" Bash like keys for the command line
+
+" Ctrl-a: Go to begin of line
+inoremap <C-a> <Home>
+
+" Ctrl-e: Go to end of line
+inoremap <C-e> <End>
+
+" Ctrl-[bf]: Move cursor left/right
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
 map <C-Z> u
-nmap <C-Z> u
+inoremap <C-Z> <Esc>u
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
