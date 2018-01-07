@@ -48,3 +48,4 @@
 5. insert mode 支持 ctrl+h,l 移动光标，ctrl+a,e 移动行首行尾
 6. insert mode，快按jk 回到normal mode
 7. nerdtree 调到指定层级（Bookmark+Shift [j|k]+p|Shift P）
+8. 空格键折叠toggle代码
