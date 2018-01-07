@@ -38,3 +38,13 @@
   github地址：https://github.com/kana/vim-fakeclip
   使用vindle  Plugin 'kana/vim-fakeclip' PluginInstall 安装即可
 - undo，redo：https://stackoverflow.com/questions/1555779/how-do-i-do-redo-i-e-undo-undo-in-vim
+
+**IDE常用功能**
+
+1. Ack 'str' 全局查找，可以指定目录查找，查找结果可以方便的看到当前目录
+2. ctrlP查找文件 ctrl [j,k] 移动，ctrl [t,v,x]打开文件
+3. vim里可以看到当前git分支
+4. 撤销ctrl z 支持normal和insert mode
+5. insert mode 支持 ctrl+h,l 移动光标，ctrl+a,e 移动行首行尾
+6. insert mode，快按jk 回到normal mode
+7. nerdtree 调到指定层级（Bookmark+Shift [j|k]+p|Shift P）
