@@ -1,51 +1,276 @@
-### 我的vim配置
+# Vim 配置说明文档
 
-我的vim之路可能比绝大数程序员要长。
+一个功能完善的 Vim 配置，适用于前端开发（Vue/JavaScript/CSS/HTML）。
 
-- 2016年3月感觉对vim的操作很感兴趣，稍微了解了一下。
-- 同年7月下决心一定要把手头的webstorm换掉，因为确实太笨重了。
-- 之后的几个月把前端开发所用的几乎所有主流的IDE（编辑器配置过后功能比较强大，可算作IDE）都用遍了。比如webstorm、sublime、atom、vscode，我看破了他们的优缺点。
-- 这期间不断折腾过vim，不得不说vim学习曲线太过陡峭，直到今天，才感觉可以开发项目了。
-- 后来坚持了几天遂放弃，很多场景还是不熟练，改用webstorm吧，开心就好。
-- 1年半以后，18年一月三日深夜，时值来京3周年之际，不满足与现有ide，想折腾一下，想到现在对vim还没掌握复制到粘贴板功能。随攻克之。希望今后的python学习能用vim作主要IDE
+---
 
-**从vim官方plugin平台安装plugin**
-> http://www.vim.org/ 学好英语很重要，这里的插件质量很高，mac平台不支持"+y 复制到clipboard的问题就是从这里找的插件解决的。
+## 快速开始
 
-**用[vindle](https://github.com/VundleVim/Vundle.vim)管理插件。**
->复制vimrc文件->系统~/.vimrc文件前，首先安装[vindle](https://github.com/VundleVim/Vundle.vim)
+### 1. 安装 Vundle 插件管理器
 
-- 字段全局搜索[Ack](https://github.com/mileszs/ack.vim) ,[说明文档](http://harttle.com/2015/12/21/vim-search.html)
-- 文件名搜索[ctrlp](https://github.com/kien/ctrlp.vim)
-- 部分文件(比如*.js、*.css、...)[fileHeader](https://github.com/alpertuna/vim-header)
-- 目录管理[NERDTree](https://github.com/scrooloose/nerdtree)
-- 开启多个文件[tabs共享](https://github.com/jistr/vim-nerdtree-tabs)
-- vue代码高亮[vim-vue](https://github.com/posva/vim-vue),注：只能高亮*.js文件里的vue代码。
-- *.vue文件代码高亮[html5.vim](https://github.com/othree/html5.vim),其原理就是.vue文件跟.html文件用一套格式。
-- 代码注释插件[nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-- zencoding插件[emmet](https://github.com/mattn/emmet-vim)
-- 自动补全插件 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-  但对于CSS的自动补全有点麻烦，因为多数CSS的语法是上下文相关的，而YCM的自动补全触发器只考虑当前行。 较好的补救办法是手动设置一下触发器，在~/.vimrc中添加：
-   ```
-   let g:ycm_semantic_triggers = {
-    \   'css': [ 're!^\s{4}', 're!:\s+'],
-    \   'html': [ '</' ],
-    \ }
-    ```
-- CSS前后大括号匹配 [delimitMate](https://github.com/Raimondi/delimitMate) 
-- vim调用OS clipboard
-  插件地址：https://vim.sourceforge.io/scripts/script.php?script_id=2098
-  github地址：https://github.com/kana/vim-fakeclip
-  使用vindle  Plugin 'kana/vim-fakeclip' PluginInstall 安装即可
-- undo，redo：https://stackoverflow.com/questions/1555779/how-do-i-do-redo-i-e-undo-undo-in-vim
+```bash
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
 
-**IDE常用功能**
+### 2. 复制配置文件
 
-1. Ack 'str' 全局查找，可以指定目录查找，查找结果可以方便的看到当前目录
-2. ctrlP查找文件 ctrl [j,k] 移动，ctrl [t,v,x]打开文件
-3. vim里可以看到当前git分支
-4. 撤销ctrl z 支持normal和insert mode
-5. insert mode 支持 ctrl+h,l 移动光标，ctrl+a,e 移动行首行尾
-6. insert mode，快按jk 回到normal mode
-7. nerdtree 调到指定层级（Bookmark+Shift [j|k]+p|Shift P）
-8. 空格键折叠toggle代码
+```bash
+cp vimrc ~/.vimrc
+```
+
+### 3. 安装插件
+
+打开 vim 后执行：
+
+```vim
+:PluginInstall
+```
+
+### 4. 安装 YouCompleteMe（可选，推荐）
+
+```bash
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all
+```
+
+### 5. 安装 Ack 全局搜索依赖
+
+```bash
+# macOS
+brew install the_silver_searcher
+
+# Ubuntu/Debian
+sudo apt-get install silversearcher-ag
+```
+
+---
+
+## 核心插件列表
+
+| 插件 | 功能 | 使用文档 |
+|------|------|----------|
+| [Vundle](https://github.com/VundleVim/Vundle.vim) | 插件管理器 | - |
+| [NERDTree](https://github.com/scrooloose/nerdtree) | 文件树导航 | 按 `F2` 或 `\n` 切换 |
+| [NERDCommenter](https://github.com/scrooloose/nerdcommenter) | 快速注释 | `\cc` 注释, `\cu` 取消注释 |
+| [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) | 模糊文件搜索 | `Ctrl+P` 打开 |
+| [Ack.vim](https://github.com/mileszs/ack.vim) | 全局文本搜索 | `:Ack 'searchtext'` |
+| [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) | 智能代码补全 | 自动触发 |
+| [Emmet](https://github.com/mattn/emmet-vim) | HTML/CSS快速编写 | [文档](https://docs.emmet.io/) |
+| [vim-vue](https://github.com/posva/vim-vue) | Vue 语法高亮 | 自动生效 |
+| [Syntastic](https://github.com/vim-syntastic/syntastic) | 语法检查 | 需配置 ESLint |
+| [delimitMate](https://github.com/Raimondi/delimitMate) | 括号自动补全 | 自动生效 |
+| [vim-fakeclip](https://github.com/kana/vim-fakeclip) | 系统剪贴板支持 | `"+y` 复制, `"+p` 粘贴 |
+| [vim-git-branch-info](https://github.com/taq/vim-git-branch-info) | 显示 Git 分支 | 状态栏显示 |
+
+---
+
+## 快捷键速查表
+
+### 通用操作
+
+| 快捷键 | 模式 | 功能 |
+|--------|------|------|
+| `jk` | Insert | 快速退出到 Normal 模式 |
+| `Ctrl+Z` | Normal/Insert | 撤销 (Undo) |
+| `Ctrl+R` | Normal | 重做 (Redo) |
+| `F1` | All | 切换粘贴模式 |
+| `Space` | Normal | 折叠/展开代码块 |
+
+### Insert 模式增强
+
+| 快捷键 | 功能 |
+|--------|------|
+| `Ctrl+A` | 移动到行首 |
+| `Ctrl+E` | 移动到行尾 |
+| `Ctrl+H` | 向左移动光标 |
+| `Ctrl+L` | 向右移动光标 |
+
+### 文件管理（NERDTree）
+
+| 快捷键 | 功能 |
+|--------|------|
+| `F2` | 切换文件树 |
+| `\n` | 切换 NERDTree tabs |
+| `p` | 跳到父节点 |
+| `P` | 跳到根节点 |
+| `o` | 打开/关闭文件或目录 |
+| `t` | 在新标签页打开 |
+| `i` | 水平分割打开 |
+| `s` | 垂直分割打开 |
+| `m` | 显示文件操作菜单 |
+
+### 文件搜索（CtrlP）
+
+| 快捷键 | 功能 |
+|--------|------|
+| `Ctrl+P` | 打开文件搜索 |
+| `Ctrl+J/K` | 上下移动选择 |
+| `Ctrl+T` | 新标签页打开 |
+| `Ctrl+V` | 垂直分割打开 |
+| `Ctrl+X` | 水平分割打开 |
+
+### 代码注释（NERDCommenter）
+
+| 快捷键 | 功能 |
+|--------|------|
+| `\cc` | 注释当前行或选中行 |
+| `\cu` | 取消注释 |
+| `\c<space>` | 切换注释状态 |
+
+### 文件头（Header）
+
+| 快捷键 | 功能 |
+|--------|------|
+| `F4` | 添加文件头注释 |
+
+### 全局搜索（Ack）
+
+```vim
+:Ack 'searchtext'              " 搜索当前目录
+:Ack 'searchtext' path/to/dir  " 搜索指定目录
+```
+
+---
+
+## 配置说明
+
+### 基础设置
+
+- **缩进**: 4 空格，自动转换 Tab 为空格
+- **行号**: 显示行号
+- **鼠标**: 支持鼠标操作
+- **语法高亮**: 默认开启
+- **配色方案**: ron
+- **自动保存**: 切换文件时自动保存
+- **搜索**: 高亮显示，增量搜索
+
+### Vue 文件支持
+
+配置已将 `.vue` 文件识别为 HTML 类型，支持语法高亮和补全。
+
+### 自动补全配置
+
+YouCompleteMe 已针对 CSS 和 HTML 配置了自动触发：
+
+```vim
+let g:ycm_semantic_triggers = {
+  \ 'css': [ 're!^\s{4}', 're!:\s+'],
+  \ 'html': [ '</' ],
+  \ }
+```
+
+---
+
+## 常见问题
+
+### 1. YouCompleteMe 安装失败
+
+确保安装了必要的依赖：
+
+```bash
+# macOS
+brew install cmake python3
+
+# Ubuntu
+sudo apt-get install build-essential cmake python3-dev
+```
+
+### 2. 系统剪贴板不工作
+
+vim-fakeclip 插件已安装，使用 `"+y` 复制，`"+p` 粘贴。
+
+### 3. ESLint 语法检查不工作
+
+需要在项目中安装 ESLint：
+
+```bash
+npm install -g eslint
+```
+
+### 4. NERDTree 自动打开
+
+配置文件中已设置启动时自动打开 NERDTree，如需关闭，注释掉：
+
+```vim
+autocmd vimenter * NERDTree
+```
+
+### 5. Ack 搜索不工作
+
+确保安装了 `ag`（The Silver Searcher）：
+
+```bash
+brew install the_silver_searcher  # macOS
+```
+
+---
+
+## 进阶技巧
+
+### 1. 书签功能
+
+NERDTree 支持书签，在 NERDTree 中按 `m` 然后选择 `a` 添加书签。
+
+### 2. 多文件编辑
+
+```vim
+:tabe filename    " 在新标签页打开文件
+gt / gT           " 切换标签页
+:buffers          " 查看缓冲区列表
+:b N              " 切换到第 N 个缓冲区
+```
+
+### 3. 代码折叠
+
+- `Space`: 切换当前折叠
+- `zR`: 展开所有折叠
+- `zM`: 折叠所有代码
+
+### 4. 分屏操作
+
+```vim
+:split filename   " 水平分割
+:vsplit filename  " 垂直分割
+Ctrl+W + 方向键    " 切换窗口
+```
+
+---
+
+## 更新日志
+
+### 最近修复
+
+- ✅ 修复了 `syntastic_javascript_checkers` 的拼写错误
+- ✅ 更新了 NERDTree 的 API 调用（`b:NERDTree.isTabTree()`）
+- ✅ 移除了重复的 `set mouse=a` 配置
+- ✅ 优化了代码格式和注释
+
+---
+
+## 个人 Vim 使用历程
+
+我的 vim 之路可能比绝大数程序员要长：
+
+- 2016年3月 感觉对 vim 的操作很感兴趣，稍微了解了一下
+- 2016年7月 下决心把 WebStorm 换掉，因为确实太笨重
+- 之后几个月 把前端开发所用的几乎所有主流 IDE 都用遍了（WebStorm、Sublime、Atom、VSCode）
+- 这期间不断折腾 vim，学习曲线确实陡峭
+- 2018年1月 来京3周年，攻克了复制到剪贴板功能，希望用 vim 作为主要 IDE
+
+---
+
+## 参考资源
+
+- [Vim 官方插件平台](http://www.vim.org/)
+- [Ack 搜索教程](http://harttle.com/2015/12/21/vim-search.html)
+- [Vim Undo/Redo 说明](https://stackoverflow.com/questions/1555779/how-do-i-do-redo-i-e-undo-undo-in-vim)
+
+---
+
+## 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## License
+
+MIT
