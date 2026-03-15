@@ -1,276 +1,111 @@
-# Vim 配置说明文档
+# Vim 配置说明
 
-一个功能完善的 Vim 配置，适用于前端开发（Vue/JavaScript/CSS/HTML）。
+这份配置文件包含了完整的 Vim 开发环境设置，主要用于前端开发（HTML/CSS/JavaScript/Vue）。
 
----
+## 快捷键总览
 
-## 快速开始
+### 基础快捷键
 
-### 1. 安装 Vundle 插件管理器
+| 快捷键 | 模式 | 功能说明 |
+|--------|------|----------|
+| `jk` | 插入模式 | 退出插入模式（替代 Esc） |
+| `Ctrl + a` | 插入模式 | 跳转到行首 |
+| `Ctrl + e` | 插入模式 | 跳转到行尾 |
+| `Ctrl + h` | 插入模式 | 光标向左移动 |
+| `Ctrl + l` | 插入模式 | 光标向右移动 |
+| `Ctrl + z` | 普通/插入模式 | 撤销操作 |
+| `Space` (空格) | 普通模式 | 折叠/展开代码块 |
+| `F1` | 所有模式 | 切换 paste 模式 |
+| `F2` | 普通模式 | 显示/隐藏文件树（NERDTree） |
+| `F4` | 普通模式 | 添加文件头信息（作者/邮箱） |
 
-```bash
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
+### 文件树操作（NERDTree）
 
-### 2. 复制配置文件
-
-```bash
-cp vimrc ~/.vimrc
-```
-
-### 3. 安装插件
-
-打开 vim 后执行：
-
-```vim
-:PluginInstall
-```
-
-### 4. 安装 YouCompleteMe（可选，推荐）
-
-```bash
-cd ~/.vim/bundle/YouCompleteMe
-python3 install.py --all
-```
-
-### 5. 安装 Ack 全局搜索依赖
-
-```bash
-# macOS
-brew install the_silver_searcher
-
-# Ubuntu/Debian
-sudo apt-get install silversearcher-ag
-```
-
----
-
-## 核心插件列表
-
-| 插件 | 功能 | 使用文档 |
-|------|------|----------|
-| [Vundle](https://github.com/VundleVim/Vundle.vim) | 插件管理器 | - |
-| [NERDTree](https://github.com/scrooloose/nerdtree) | 文件树导航 | 按 `F2` 或 `\n` 切换 |
-| [NERDCommenter](https://github.com/scrooloose/nerdcommenter) | 快速注释 | `\cc` 注释, `\cu` 取消注释 |
-| [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) | 模糊文件搜索 | `Ctrl+P` 打开 |
-| [Ack.vim](https://github.com/mileszs/ack.vim) | 全局文本搜索 | `:Ack 'searchtext'` |
-| [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) | 智能代码补全 | 自动触发 |
-| [Emmet](https://github.com/mattn/emmet-vim) | HTML/CSS快速编写 | [文档](https://docs.emmet.io/) |
-| [vim-vue](https://github.com/posva/vim-vue) | Vue 语法高亮 | 自动生效 |
-| [Syntastic](https://github.com/vim-syntastic/syntastic) | 语法检查 | 需配置 ESLint |
-| [delimitMate](https://github.com/Raimondi/delimitMate) | 括号自动补全 | 自动生效 |
-| [vim-fakeclip](https://github.com/kana/vim-fakeclip) | 系统剪贴板支持 | `"+y` 复制, `"+p` 粘贴 |
-| [vim-git-branch-info](https://github.com/taq/vim-git-branch-info) | 显示 Git 分支 | 状态栏显示 |
-
----
-
-## 快捷键速查表
-
-### 通用操作
-
-| 快捷键 | 模式 | 功能 |
-|--------|------|------|
-| `jk` | Insert | 快速退出到 Normal 模式 |
-| `Ctrl+Z` | Normal/Insert | 撤销 (Undo) |
-| `Ctrl+R` | Normal | 重做 (Redo) |
-| `F1` | All | 切换粘贴模式 |
-| `Space` | Normal | 折叠/展开代码块 |
-
-### Insert 模式增强
-
-| 快捷键 | 功能 |
-|--------|------|
-| `Ctrl+A` | 移动到行首 |
-| `Ctrl+E` | 移动到行尾 |
-| `Ctrl+H` | 向左移动光标 |
-| `Ctrl+L` | 向右移动光标 |
-
-### 文件管理（NERDTree）
-
-| 快捷键 | 功能 |
-|--------|------|
-| `F2` | 切换文件树 |
-| `\n` | 切换 NERDTree tabs |
-| `p` | 跳到父节点 |
-| `P` | 跳到根节点 |
-| `o` | 打开/关闭文件或目录 |
-| `t` | 在新标签页打开 |
-| `i` | 水平分割打开 |
-| `s` | 垂直分割打开 |
-| `m` | 显示文件操作菜单 |
-
-### 文件搜索（CtrlP）
-
-| 快捷键 | 功能 |
-|--------|------|
-| `Ctrl+P` | 打开文件搜索 |
-| `Ctrl+J/K` | 上下移动选择 |
-| `Ctrl+T` | 新标签页打开 |
-| `Ctrl+V` | 垂直分割打开 |
-| `Ctrl+X` | 水平分割打开 |
+| 快捷键 | 功能说明 |
+|--------|----------|
+| `\n` (Leader + n) | 切换 NERDTree 标签页 |
+| `F2` | 显示/隐藏 NERDTree |
 
 ### 代码注释（NERDCommenter）
 
-| 快捷键 | 功能 |
-|--------|------|
-| `\cc` | 注释当前行或选中行 |
-| `\cu` | 取消注释 |
-| `\c<space>` | 切换注释状态 |
+| 快捷键 | 功能说明 |
+|--------|----------|
+| `\cc` | 注释选中的代码 |
+| `\cu` | 取消注释选中的代码 |
 
-### 文件头（Header）
+### 文件搜索（CtrlP）
 
-| 快捷键 | 功能 |
-|--------|------|
-| `F4` | 添加文件头注释 |
+| 快捷键 | 功能说明 |
+|--------|----------|
+| `Ctrl + p` | 打开文件搜索面板 |
 
-### 全局搜索（Ack）
+### 代码搜索（Ack/Ag）
 
-```vim
-:Ack 'searchtext'              " 搜索当前目录
-:Ack 'searchtext' path/to/dir  " 搜索指定目录
-```
+| 快捷键 | 功能说明 |
+|--------|----------|
+| `:Ack [关键字]` | 全局搜索文件内容 |
 
----
+## 主要插件列表
 
-## 配置说明
+| 插件名 | 功能说明 |
+|--------|----------|
+| Vundle.vim | 插件管理器 |
+| emmet-vim | HTML/CSS 快速编码 |
+| nerdcommenter | 快速代码注释 |
+| nerdtree | 文件树浏览器 |
+| vim-nerdtree-tabs | NERDTree 标签页支持 |
+| ctrlp.vim | 文件快速搜索 |
+| vim-vue | Vue 语法高亮 |
+| html5.vim | HTML5 语法支持 |
+| vim-header | 自动添加文件头 |
+| YouCompleteMe | 代码自动补全 |
+| ack.vim | 全局代码搜索 |
+| delimitMate | 自动括号补全 |
+| vim-javascript | JavaScript 语法支持 |
+| syntastic | 语法检查 |
+| vim-terminal | 内置终端 |
+| vim-git-branch-info | 显示 Git 分支信息 |
 
-### 基础设置
+## 编辑器配置
 
-- **缩进**: 4 空格，自动转换 Tab 为空格
-- **行号**: 显示行号
-- **鼠标**: 支持鼠标操作
-- **语法高亮**: 默认开启
-- **配色方案**: ron
-- **自动保存**: 切换文件时自动保存
-- **搜索**: 高亮显示，增量搜索
+### 缩进与制表符
+- 制表符宽度：4 个空格
+- 使用空格替代制表符
+- 自动缩进开启
+- C/C++ 风格缩进
 
-### Vue 文件支持
+### 界面设置
+- 显示行号
+- 语法高亮开启
+- 配色方案：ron
+- 显示 Git 分支（状态栏）
+- 鼠标支持（所有模式）
 
-配置已将 `.vue` 文件识别为 HTML 类型，支持语法高亮和补全。
+### 搜索设置
+- 增量搜索（实时显示匹配）
+- 搜索结果高亮
+- 代码折叠（基于缩进）
 
-### 自动补全配置
+### 其他功能
+- 自动保存文件
+- 取消交换文件（swap）
+- 括号匹配显示
+- 整词换行
+- 历史记录：50 条
 
-YouCompleteMe 已针对 CSS 和 HTML 配置了自动触发：
+## 文件类型支持
 
-```vim
-let g:ycm_semantic_triggers = {
-  \ 'css': [ 're!^\s{4}', 're!:\s+'],
-  \ 'html': [ '</' ],
-  \ }
-```
+- HTML / HTML5
+- CSS
+- JavaScript
+- Vue 单文件组件
+- Pug (Jade) 模板
+- C / C++
 
----
+## 使用建议
 
-## 常见问题
-
-### 1. YouCompleteMe 安装失败
-
-确保安装了必要的依赖：
-
-```bash
-# macOS
-brew install cmake python3
-
-# Ubuntu
-sudo apt-get install build-essential cmake python3-dev
-```
-
-### 2. 系统剪贴板不工作
-
-vim-fakeclip 插件已安装，使用 `"+y` 复制，`"+p` 粘贴。
-
-### 3. ESLint 语法检查不工作
-
-需要在项目中安装 ESLint：
-
-```bash
-npm install -g eslint
-```
-
-### 4. NERDTree 自动打开
-
-配置文件中已设置启动时自动打开 NERDTree，如需关闭，注释掉：
-
-```vim
-autocmd vimenter * NERDTree
-```
-
-### 5. Ack 搜索不工作
-
-确保安装了 `ag`（The Silver Searcher）：
-
-```bash
-brew install the_silver_searcher  # macOS
-```
-
----
-
-## 进阶技巧
-
-### 1. 书签功能
-
-NERDTree 支持书签，在 NERDTree 中按 `m` 然后选择 `a` 添加书签。
-
-### 2. 多文件编辑
-
-```vim
-:tabe filename    " 在新标签页打开文件
-gt / gT           " 切换标签页
-:buffers          " 查看缓冲区列表
-:b N              " 切换到第 N 个缓冲区
-```
-
-### 3. 代码折叠
-
-- `Space`: 切换当前折叠
-- `zR`: 展开所有折叠
-- `zM`: 折叠所有代码
-
-### 4. 分屏操作
-
-```vim
-:split filename   " 水平分割
-:vsplit filename  " 垂直分割
-Ctrl+W + 方向键    " 切换窗口
-```
-
----
-
-## 更新日志
-
-### 最近修复
-
-- ✅ 修复了 `syntastic_javascript_checkers` 的拼写错误
-- ✅ 更新了 NERDTree 的 API 调用（`b:NERDTree.isTabTree()`）
-- ✅ 移除了重复的 `set mouse=a` 配置
-- ✅ 优化了代码格式和注释
-
----
-
-## 个人 Vim 使用历程
-
-我的 vim 之路可能比绝大数程序员要长：
-
-- 2016年3月 感觉对 vim 的操作很感兴趣，稍微了解了一下
-- 2016年7月 下决心把 WebStorm 换掉，因为确实太笨重
-- 之后几个月 把前端开发所用的几乎所有主流 IDE 都用遍了（WebStorm、Sublime、Atom、VSCode）
-- 这期间不断折腾 vim，学习曲线确实陡峭
-- 2018年1月 来京3周年，攻克了复制到剪贴板功能，希望用 vim 作为主要 IDE
-
----
-
-## 参考资源
-
-- [Vim 官方插件平台](http://www.vim.org/)
-- [Ack 搜索教程](http://harttle.com/2015/12/21/vim-search.html)
-- [Vim Undo/Redo 说明](https://stackoverflow.com/questions/1555779/how-do-i-do-redo-i-e-undo-undo-in-vim)
-
----
-
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-## License
-
-MIT
+1. **快速编辑**：使用 `jk` 代替 Esc 退出插入模式，更加高效
+2. **代码导航**：使用 `F2` 打开文件树，`Ctrl+p` 快速搜索文件
+3. **代码注释**：选中代码后使用 `\cc` 注释，`\cu` 取消注释
+4. **折叠代码**：使用空格键折叠/展开代码块（仅在普通模式下生效）。如需在 Visual 模式下折叠，可使用 Vim 自带命令 `zf`（创建折叠）、`zo`（展开）、`zc`（折叠）
+5. **粘贴模式**：粘贴代码前按 `F1` 进入 paste 模式，避免自动缩进错乱
